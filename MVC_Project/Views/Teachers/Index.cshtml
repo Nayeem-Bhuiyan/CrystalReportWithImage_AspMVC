@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MVC_Project.Models.tblTeacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+
+  
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.teacherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacherEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacherPicture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teacherPicName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teacherEmail)
+        </td>
+  
+        <td>
+            <img src="@Url.Content(item.teacherPicName)" height="70" width="70" alt="" />
+
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            @Html.ActionLink("ShowReport", "Report", new {id=item.id }) |
+        </td>
+    </tr>
+}
+
+</table>

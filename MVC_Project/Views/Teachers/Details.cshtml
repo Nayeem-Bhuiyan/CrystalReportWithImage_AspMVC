@@ -1,0 +1,43 @@
+﻿@model MVC_Project.Models.tblTeacher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblTeacher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teacherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teacherEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacherEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.teacherPicName)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.teacherPicName)*@
+            <img src="@Url.Content(Model.teacherPicName)" width="70" height="70" alt="" />
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
